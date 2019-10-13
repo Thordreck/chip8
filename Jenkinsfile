@@ -3,14 +3,18 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mkdir -p ./build && cd ./build'
-                sh 'cmake -DBUILD_TESTS=True ..'
-                sh 'make'
+                sh 'mkdir -p ./build'
+                dir("build") {
+                    sh 'cmake -DBUILD_TESTS=True ..'
+                    sh 'make'
+                }
             }
         }
         stage('test') {
             steps {
-                sh 'ctest --verbose'
+                dir("build") {
+                    sh 'ctest --verbose'
+                }
             }
         }
     }
