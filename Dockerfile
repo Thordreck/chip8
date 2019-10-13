@@ -1,7 +1,8 @@
 FROM ubuntu:xenial
 
 RUN apt update && \
-    apt install -y software-properties-common apt-transport-https ca-certificates gnupg software-properties-common wget && \
+    apt install -y software-properties-common apt-transport-https ca-certificates \ 
+        gnupg software-properties-common wget libsfml-dev && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && \
     wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - && \
     apt-add-repository 'deb https://apt.kitware.com/ubuntu/ xenial main' && \
