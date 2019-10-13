@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mkdir -p build && cd build'
+                sh 'mkdir -p ./build && cd ./build'
                 sh 'cmake -DBUILD_TESTS=True ..'
                 sh 'make'
             }
