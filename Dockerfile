@@ -19,3 +19,6 @@ ENV DISPLAY :0
 USER dev
 RUN mkdir /home/dev/.pulse
 
+USER root
+RUN chown -R dev:dev /home/dev
+USER dev
