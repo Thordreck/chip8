@@ -13,6 +13,7 @@ RUN apt update && \
     apt install -y cmake g++-9
 
 RUN useradd -ms /bin/bash dev
+ENV CXX /usr/bin/g++-9 
 
 USER dev
 
