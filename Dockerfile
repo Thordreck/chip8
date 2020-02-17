@@ -17,4 +17,5 @@ ENV CXX /usr/bin/g++-9
 ENV DISPLAY :0
 
 USER dev
+RUN mkdir /home/dev/.pulse
 
