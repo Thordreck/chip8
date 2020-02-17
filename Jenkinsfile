@@ -6,9 +6,9 @@ pipeline {
                 -v /dev/snd:/dev/snd --privileged
                 -v /dev/shm:/dev/shm \
                 -v /etc/machine-id:/etc/machine-id \
-                -v /run/user/$uid/pulse:/run/user/$uid/pulse \
+                -v /run/user/$uid/pulse:/run/user/${uid}/pulse \
                 -v /var/lib/dbus:/var/lib/dbus \
-                -v ~/.pulse:/home/dev/.pulse
+                -v ${HOME}/.pulse:/home/dev/.pulse
             '''
         }
    }
