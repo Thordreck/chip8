@@ -17,7 +17,7 @@ pipeline {
             // Execute the tests
             sh '''
                 cd build
-                ctest --no-compress-output -T Test || /usr/bin/true
+                ./chip8_cpp_tests --gtest_output="xml"
             '''
          }
 
@@ -26,7 +26,7 @@ pipeline {
                 // Import ctests results using xunit plugin
                 xunit (
                     thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
-                    tools: [ GTest(pattern: '**Testing/**/*.xml')]
+                    tools: [ GTest(pattern: 'test_detail.xml')]
                 )
             }
          }
