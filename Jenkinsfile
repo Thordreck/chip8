@@ -1,5 +1,9 @@
 pipeline {
-   agent { dockerfile true }
+   agent {
+        dockerfile {
+            args "-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix"
+        }
+   }
 
    stages {
       stage('Build') {

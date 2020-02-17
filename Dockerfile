@@ -14,6 +14,7 @@ RUN apt update && \
 
 RUN useradd -ms /bin/bash dev
 ENV CXX /usr/bin/g++-9 
+ENV DISPLAY :0
 
 USER dev
 
