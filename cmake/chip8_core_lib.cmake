@@ -8,8 +8,10 @@ add_library(CHIP8_CORE_LIB
         src/io/display/Renderer.cpp
         src/details/memory.cpp
         src/details/audio.cpp
+        src/details/opcodes.cpp
         src/registers/DataRegister.cpp
         src/registers/IRegister.cpp
+        src/tasks/RecurrentTask.cpp
 )
 
 target_include_directories(CHIP8_CORE_LIB 
@@ -21,6 +23,9 @@ target_include_directories(CHIP8_CORE_LIB
     )
 
 target_compile_features(CHIP8_CORE_LIB PRIVATE cxx_std_17)
+
+include(chip8_threads)
+target_link_threads(CHIP8_CORE_LIB)
 
 include(chip8_sfml)
 target_add_sfml(CHIP8_CORE_LIB)

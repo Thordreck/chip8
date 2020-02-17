@@ -7,6 +7,7 @@ add_library(CHIP8_TESTS_LIB
         test/display_test.cpp
         test/register_test.cpp
         test/random_test.cpp
+        test/opcodes.cpp
 )
 
 target_include_directories(CHIP8_TESTS_LIB PRIVATE include)
@@ -43,6 +44,3 @@ string(CONCAT CHIP8_TESTS_LIB_CLANG_TIDY_CHECKS "-checks=*,"
     "-hicpp-vararg"
     )
 target_add_clang_tidy(CHIP8_TESTS_LIB ${CHIP8_TESTS_LIB_CLANG_TIDY_CHECKS})
-
-include(chip8_coverage)
-target_add_coverage(${MAIN_EXECUTABLE})
