@@ -4,6 +4,11 @@ pipeline {
             args '''
                 -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix
                 -v /dev/snd:/dev/snd --privileged
+                -v /dev/shm:/dev/shm \
+                -v /etc/machine-id:/etc/machine-id \
+                -v /run/user/$uid/pulse:/run/user/$uid/pulse \
+                -v /var/lib/dbus:/var/lib/dbus \
+                -v ~/.pulse:/home/dev/.pulse
             '''
         }
    }
