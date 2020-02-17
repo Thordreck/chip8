@@ -1,7 +1,7 @@
 pipeline {
    agent {
         dockerfile {
-            args "-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix"
+            args '-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix'
         }
    }
 
